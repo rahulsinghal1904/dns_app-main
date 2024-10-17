@@ -26,7 +26,7 @@ def US_server():
     query_response = response.decode()
     query_response = json.loads(query_response)
     fs_path = 'http://' + query_response["ip"] + ':' + fs_port + '/fibonacci?' + 'number=' + number
-    returnval = requests.get(fs_path)
+    returnval = requests.get(fs_path, timeout=60)
     return returnval.text
 
 
